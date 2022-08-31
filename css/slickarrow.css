@@ -1,0 +1,44 @@
+.slick-prev, .slick-next {
+    width: 25px;
+    height: 25px;
+    border: 6px solid white;
+    transform: rotate(45deg);
+    z-index: 2;
+    bottom: 30px;
+    top: initial;
+}
+.slick-prev {
+    left: initial;
+    border-top: transparent;
+    border-right: transparent;
+    right: 90px;
+    
+}
+.slick-next {
+    right: 30px;
+    border-bottom: transparent;
+    border-left: transparent;
+}
+.slick-prev::before, .slick-next::before {
+    color: #333;
+    font-size: 30px;
+    content: "";
+}
+.slick-prev::before {
+    
+}
+.slick-next::before {
+    
+}
+.slick-dots{
+    bottom: 36px;
+}
+.slick-dots li button::before{
+    font-size: 17px;
+    transition: transform 0.5s,color 0.5s,opacity 0.5s;
+}
+.slick-dots li.slick-active button::before {
+  opacity: .75;
+  color: red;
+  transform: scale(1.4);  
+}

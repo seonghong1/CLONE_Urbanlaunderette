@@ -64,7 +64,7 @@ header .inner ul.gnb li {
   
 }
 header .inner ul.gnb li h2 {
-  
+
 }
 header .inner ul.gnb li h2 a {
   
@@ -107,6 +107,10 @@ header .inner ul.enb li a {
   justify-content: center;
   align-items: center;
 }
+#top i{
+  font-size: 30px;
+  margin-right: 20px;
+}
 .wrapgnb ul.gnb{
   display: flex !important;
   gap: 20px;
@@ -115,7 +119,7 @@ header .inner ul.enb li a {
   
 }
 .wrapgnb ul.gnb >li h2{
-  font-size: 24px;
+  font-size: 27px;
   height: 24px;
   overflow: hidden;
   margin-bottom: 20px;
@@ -139,5 +143,6 @@ header .inner ul.enb li a {
 }
 .translateY{
   transform: translateY(0%) !important;
+  
 }
   

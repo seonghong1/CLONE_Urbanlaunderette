@@ -15,53 +15,50 @@
     <link rel="stylesheet" href="css/title.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/ham.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/ham.css.css">
+    <script src="https://kit.fontawesome.com/87ec544e05.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            //console.log($(window).height());
             let n=0; //변수 let에 0을 넣어라 (변수선언과 초기화)
             let winW=$(window).width();
             let winH=$(window).height();
-            //console.log("초기윈도우너비:" + winW + "/ 초기 윈도우 높이:" + winH);
+            console.log("초기윈도우너비:" +winH+ "/ 초기윈도우높이:"+winH);
             $("header .inner .wgnb a.ham").click(function(){
 
+             
                if(n==0){ //n의 들어있는 값이 0과 같다
-                    console.log(n);
-                    $("div.menuback").remove();
-                    $("#top").prepend("<div class='menuback'></div>");
-                    $(".menuback").css({"height":winH});
-                    n=1;
-                    //console.log("클릭한이후의 n값:"+n);
-               }
-               else{
-                    console.log(n);
+                console.log(n);
+                $("div.menuback").remove();
+                $("#top").prepend("<div class='menuback'></div>"); 
+                $(".menuback").css({"height":winH});
+                n=1;
+                console.log("클릭한 이후의 n값:"+n)
+               }else{
 
-                    $(".wrapgnb ul.gnb > li h2 a,.wrapgnb ul.gnb >li ul li a").toggleClass("translateY");
-                    setTimeout(function(){
-                        $(".menuback").addClass("menubackmove");
-                    },2000);
-                    
-                    n=0;
-                    //console.log("두번째 클릭한이후의 n값:"+n);
+                console.log(n);
+                $(".wrapgnb ul.gnb > li h2 a,.wrapgnb ul.gnb >li ul li a").toggleClass("translateY");
+                setTimeout(function(){
+                    $(".menuback").addClass("menubackmove");
+                },2000);
+                
+                n=0;
+                console.log("두번째 클릭한 이후의 n값:"+n)
                }
 
-               // 햄버거클릭시 메뉴보이게 하기
+            // 햄버거클릭시 메뉴보이게 하기
                $(".wrapgnb").remove();
                $(".menuback").append("<div class='wrapgnb'></div>");
-               $("#top .gnb").clone().appendTo(".wrapgnb").show(500,function(){
-                $(".wrapgnb ul.gnb > li h2 a,.wrapgnb ul.gnb >li ul li a").toggleClass("translateY"); //메뉴등장
+               $("#top .gnb").appendTo(".wrapgnb").show(500,function(){
+                $(".wrapgnb ul.gnb > li h2 a,.wrapgnb ul.gnb >li ul li a").toggleClass("translateY");
                });
-
-               //$(".wrapgnb .gnb").clone().appendTo(".wgnb");
+               $(".wrapgnb .gnb").clone().appendTo(".wgnb");
                $(".wrapgnb").css({"height":winH,"width":winW});
                
-
-               
                // 하단 카피라이트와 SNS배치.애니
-               $(".wrapsns").remove();
-               $(".menuback").append("<p class='copyright'>© 2020 URBAN LAUNDERETTE. ALL RIGHTS RESERVED. Designed by <a href='https://studio-jt.co.kr/' target='_blank'>STUDIO-JT</a>.</p>");
+               $(".wrapsns").remove()
+               $(".menuback").append("<p class='copyright'>©️ 2020 URBAN LAUNDERETTE. ALL RIGHTS RESERVED. Designed by <a href='https://studio-jt.co.kr/' target='_blank'>STUDIO-JT</a></p>");
                $("footer div.inner .right ul.sns").clone().appendTo(".menuback");
                $(".menuback .copyright").wrapInner("<span></span>");
                $(".menuback .copyright,.menuback .sns").wrapAll("<div class='wrapsns'></div>");
@@ -69,174 +66,35 @@
                setTimeout(function(){
                 $(".wrapsns>*>*").toggleClass("translateY");
                },1000);
+  
+              
                
-
+               
+             
+             
                return false;
-
-
-            });
+               
+      
+            });5
             
             // 창사이즈 조절 resize
             $(window).resize(function(){ //resize이벤트 : 윈도우창사이즈를 조절할때 발생하는 이벤트
-                winW=$(window).width();
-                winH=$(window).height();
+                let winW=$(window).width();
+                let winH=$(window).height();
                 $(".menuback").css({"height":winH});
                 $(".wrapgnb").css({"height":winH,"width":winW});
                 $(".wrapsns").css({"width":winW,"padding-left":winW*0.15,"padding-right":winW*0.15});
-                //console.log("윈도우너비:" + winW + "/ 윈도우 높이:" + winH);
+                console.log("윈도우너비:" + winW + "/ 윈도우 높이:" + winH);
             });
-            //$(window).on("이벤트명",function(){});
-            $(window).on("resize",function(){
-                winW=$(window).width();
-                winH=$(window).height();
-                $(".menuback").css({"height":winH});
-                $(".wrapgnb").css({"height":winH,"width":winW});
-                $(".wrapsns").css({"width":winW,"padding-left":winW*0.15,"padding-right":winW*0.15});
-                //console.log("윈도우너비:" + winW + "/ 윈도우 높이:" + winH);
-            });
-        });
-    </script>
-    <!-- 타이틀 슬릭애니메이션 -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="css/slickarrow.css">
-    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-           $(".titleslide").slick({
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                vertical:true,
-                speed : 1500    
-           }); 
-
-
-           //페이지로딩시 첫번째 항목의 글자가 등장하게
-           $("#title .inner.slick-current h2 span").addClass("h2up");
-           $("#title .inner.slick-current p span").addClass("pup");
-           /*
-           $(".slick-list").bind("mouseup touchend",function(e){
-                // e.preventDefault();
-                alert(1);
-                // alert(e.originalEvent.touches[0].screenX);
-           });
-           */
-            //$(".slick-arrow").click(function(){
-            //$(".slick-arrow,.slick-list").on("click mouseup mouseout",function(){
-           $(".slick-arrow,.slick-list").on("click mouseup mouseout",function(){
-                
-                //이전,이후버튼 클릭시 글자가 등장하게(addClass)
-                $("#title .inner.slick-current h2 span").addClass("h2up");
-                $("#title .inner.slick-current p span").addClass("pup");
-
-                if($(this).hasClass("slick-next")){ // 다음버튼 클릭시 이전항목글자가 사라지게(removeClass)
-                    if($("#title .inner.slick-current").hasClass("titleslide1")){
-                        // 5번째항목글자가 밑으로 사라지게(removeClass)
-                        $("#title .inner:nth-of-type(6)").children("h2").children("span").removeClass("h2up");
-                        $("#title .inner:nth-of-type(6)").children("p").children("span").removeClass("pup");
-                        // 5번째 항목에서 첫번째 항목으로 넘어갈때 6번째항목의 글자올라오게(addClass)
-                        $("#title .inner:nth-of-type(6)").next().children("h2").children("span").addClass("h2up");
-                        $("#title .inner:nth-of-type(6)").next().children("p").children("span").addClass("pup");
-                    }else{
-                        // 한바퀴 돌고난후 2차시기에 글자올라오게끔 두번째구간의 1번항목의 미리 클래스를 제거(removeClass)
-                        $("#title .inner:nth-of-type(6)").next().children("h2").children("span").removeClass("h2up");
-                        $("#title .inner:nth-of-type(6)").next().children("p").children("span").removeClass("pup");
-                        //다음항목이 위로 보여질때 이전항목의 글자가 사라지게(removeClass)
-                        $("#title .inner.slick-current").prev().children("h2").children("span").removeClass("h2up");
-                        $("#title .inner.slick-current").prev().children("p").children("span").removeClass("pup");  
-                    }
-                }else{ //이전버튼 클릭시 이전항목글자가 사라지게(removeClass)
-                    $("#title .inner.slick-current").next().children("h2").children("span").removeClass("h2up");
-                    $("#title .inner.slick-current").next().children("p").children("span").removeClass("pup");
-                }
-                
-           });
-           /*
-           //on이벤트 삭제
-           $("#service .inner hgroup h2").click(function(){
-                $(".slick-arrow,.slick-list").off();
-           });
-           */
-  
-        });
-    </script>
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script>
-        $(function(){
-
-
-            //alert($(window).scrollTop());
-            //$(window).scrollTop(300);
-            let moveY=0;
-            let spaceY=0;
-            let spaceY2=0;
-            let lastScrollY = 0; //이전스크롤값
-            let spaceTop=0;
-
-            $(window).on('mousewheel DOMMouseScroll scroll', function(event){
-             // 스크롤이벤트시 작동
-                let scrollY = $(window).scrollTop(); //현재스크롤값
-                
-                if(scrollY > lastScrollY){
-                    moveY +=3;
-                    $('.ion-help-buoy').css({top:moveY}); 
-                }else{
-                    moveY -=3;
-                    $('.ion-help-buoy').css({top:moveY}); 
-                }
-                console.log("0밑으로 스크롤시 글자이동값:"+moveY);
-
-
-            // space글자가 고개를 내미는...작동   
-                spaceTop=$("#space .inner h2").offset().top - $(window).height(); //space글자가 고개를 내미는 위치값
-                //spaceY값 계산(스페이지하단부분이 보여질때 글자가 끝에 붙게금)
-                spaceY2=($(window).width()*0.7) / ($("#space").height()/16);
-
-                if(scrollY > spaceTop && scrollY < spaceTop+$("#space").height()){
-                    if(scrollY > lastScrollY){
-                        spaceY -=spaceY2;
-                        $('#space .inner h2').css({transform:"translateX("+ spaceY +"px)"}); 
-                    }else{
-                        //moveY=0;
-                        spaceY +=spaceY2;
-                        $('#space .inner h2').css({transform:"translateX("+ spaceY +"px)"}); 
-                        console.log("1밑으로 스크롤시 글자이동값:"+spaceY);
-                    } 
-                }
-
-               lastScrollY = scrollY;// 현재의 스크롤 값을 저장
-
-            // 휠 방향 감지(아래: -120, 위: 120)
-                let w_delta = event.originalEvent.wheelDelta/40 ; //크롬에서 작동
-                //alert(w_delta);
-                let w_deltaF = -event.originalEvent.detail ; //파이어폭스에서 작동
-                //alert(w_delta);
-
-                // 휠 아래로
-                if(w_delta < 0 ) { //크롬브라우저에서 작동
-                    moveY += Number(w_delta);
-                    $('.ion-help-buoy').css({top:-moveY});
-                   
-                }
-                // 학습사항:if문,변수,비교연산자,논리연산자,this,next(),length,animate(),배열,객체
-                
-                if(w_deltaF < 0) {//파이어폭스에서 작동
-                    moveY += Number(w_deltaF);
-                    $('.ion-help-buoy').css({top:-moveY});
-                    //alert(Number(w_deltaF));
-                }
-                // 휠 위로
-                else if(w_delta > 0) {
-                    moveY += Number(w_delta);
-                    $('.ion-help-buoy').css({top:-moveY});
-                }
-                else if(w_deltaF > 0) {
-                    moveY += Number(w_deltaF);
-                    $('.ion-help-buoy').css({top:-moveY});
-                }
-
-            });
+            //$(Window).on("이벤트명",function(){});
+            // $(Window).on("resize",function(){
+            //     let winW=$(window).width();
+            //     let winH=$(window).height();
+            //     $(".menuback").css({"height":winH});
+            //     $(".wrapgnb").css({"height":winH,"width":winW});
+            //     $(".wrapsns").css({"width":winW,"padding-left":winW*0.15,"padding-right":winW*0.15});
+            //     console.log("윈도우너비:" + winW + "/ 윈도우 높이:" + winH);  
+            // });
         });
     </script>
 </head>
@@ -293,41 +151,18 @@
             </ul>
         </div>
     </header>
+    <!-- <aside>
+        <ul>
+            <li><a href="" class="shop">shop</a></li>
+            <li><a href="" class="kakao">kakao</a></li>
+        </ul>
+    </aside> -->
     <!-- 타이틀영역 -->
     <div id="title" class="">
-        <div class="wtitleslide inner">
-            <div class="titleslide">
-                <div class="titleslide1 inner flex flexColumn flexCenter">
-                    <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
-                    <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
-                    <!-- <iframe class="video" src="https://player.vimeo.com/video/626348459?muted=1&autoplay=1&autopause=0&loop=1&background=1" frameborder="0"></iframe> -->
-                    <!--<video poster="img/title1.jpg" autoplay loop controls>
-                        <source src="https://player.vimeo.com/video/626348459?muted=1&autoplay=1&autopause=0&loop=1&background=1" type="video/mp4">
-                    </video>-->
-                    <img src="img/title1.jpg" />
-                </div>
-                <div class="titleslide2 inner flex flexColumn flexCenter">
-                    <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
-                    <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
-                    <img src="img/title2.jpg" />
-                </div>
-                <div class="titleslide3 inner flex flexColumn flexCenter">
-                    <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
-                    <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
-                    <img src="img/title3.jpg" />
-                </div>
-                <div class="titleslide4 inner flex flexColumn flexCenter">
-                    <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
-                    <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
-                    <img src="img/title4.jpg" />
-                </div>
-                <div class="titleslide5 inner flex flexColumn flexCenter">
-                    <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
-                    <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
-                    <img src="img/title5.jpg" />
-                </div>
-            </div>
-                
+        <div class="inner flex flexColumn flexCenter">
+            <h2 class="h2"><span>SUSTAINABLE LIFE STYLE</span></h2>
+            <p class="p"><span>지속가능한 미래를 위한 <i class="br"></i>새로운 라이프스타일 어반런드렛</span></p>
+            <iframe class="video" src="https://player.vimeo.com/video/626348459?muted=1&autoplay=1&autopause=0&loop=1&background=1" frameborder="0"></iframe>
         </div>
         <span class="titleaside">
             <a href="https://urbanlaunderette.com/business/green-campaign/" class="campaign">KEEP CLEAN & GREEN</a>
@@ -344,7 +179,6 @@
     </div> -->
     <!-- 내용영역 -->
     <main>
-        <span class="ion-help-buoy"></span>
         <section id="service">
             <div class="inner padding100 flex flexColumn flexAlignCenter">
                 <hgroup class="text-center">
@@ -533,9 +367,9 @@
             </div>
             <div class="right">
                 <ul class="sns flex">
-                    <li><a href="">페이스북</a></li>
-                    <li><a href="">인스타그램</a></li>
-                    <li><a href="">네이버포스트</a></li>
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-twitter"></i></a></li>
                 </ul>
                 <a href="mailto:contact@jpinnovation.kr"  class="email">
                     contact@jpinnovation.kr

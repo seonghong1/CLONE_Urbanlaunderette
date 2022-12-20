@@ -60,6 +60,7 @@
   #title{
   padding-top: 100px;
   box-sizing: border-box;
+  height: 65%;
   }
   #title::before{
     width: 100%;
@@ -102,10 +103,14 @@
   #service .inner .contents article a::before{
   height: 77.47395833333333vw;
   }
+  #service .inner .contents article a:hover::before{
+    border: 15px solid rgb(6, 65, 6);
+  }
   #service .inner .contents{
   margin-top: 7.8125vw;
   row-gap: 19.53125vw;
   }
+  
 /* space   */
   #space{
   padding: 21.875vw 0 5.208333333333333vw;
